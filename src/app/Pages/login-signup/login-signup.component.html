@@ -1,0 +1,34 @@
+<div class="heading">
+  <p>Login/Signup Form With Local-Storage</p>
+</div>
+<div class="container">
+    <!-- Signup Form -->
+    <form *ngIf="activeForm === 'signUp' ">
+        <h2>SIGNUP</h2>
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Name" [(ngModel)]="signUpObj.name"/>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email" [(ngModel)]="signUpObj.email"/>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="signUpObj.password"/>
+        </div>
+        <button type="submit" (click)="onSignup()">SignUp</button>
+        <p (click)="toggleForm('login')">Already have an account ? <span class="highlight">Login</span></p>
+    </form>
+
+    <!-- Login Form -->
+
+    <form *ngIf="activeForm === 'login'">
+        <h2>LOGIN</h2>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email" [(ngModel)]="loginObj.email"/>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="loginObj.password"/>
+        </div>
+        <button type="submit" (click)="onLogin()">Login</button>
+        <p (click)="toggleForm('signUp')">Don't have an Account ? <span class="highlight">SignUp</span></p>
+    </form>
+</div>
